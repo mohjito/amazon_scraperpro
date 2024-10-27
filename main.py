@@ -1,3 +1,4 @@
+from flask import Flask
 import requests
 from bs4 import BeautifulSoup
 import time
@@ -8,6 +9,12 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 import pandas as pd
 import io
 import pytz
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return "Hello, this is your web scraper running with Gunicorn!"
 
 # Import settings from config.py
 import config
